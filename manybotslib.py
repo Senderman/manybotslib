@@ -37,8 +37,13 @@ class BotsRunner:
         self.__bots[name] = bot
         self.__bots_status[name] = False
 
-    def set_main_bot(self, bot):
+    def set_main_bot(self, bot, status_command):
         self.__main_bot = bot
+        @self.__main_bot.message_handler(commands=[status_command])
+        def send_status(m):
+            if m.from_user.id not in self.__admins:
+                return
+            self.__main_bot.send_message(m.chat.id, self.format_status())
 
     def run(self):
         for botname in self.__bots:
