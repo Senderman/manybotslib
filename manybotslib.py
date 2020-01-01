@@ -39,7 +39,8 @@ class BotsRunner:
 
     def set_main_bot(self, bot, status_command):
         self.__main_bot = bot
-        @self.__main_bot.message_handler(commands=[status_command])
+
+        @BotsRunner.__message_handler(self.__main_bot, commands=[status_command])
         def send_status(m):
             if m.from_user.id not in self.__admins:
                 return
@@ -84,6 +85,30 @@ class BotsRunner:
                     self.__tell_about_restart(botname, local_retries)
                     continue
                 break
+
+    @staticmethod
+    def __message_handler(mainbot, commands):
+
+        def decorator(handler):
+            handler_dict = BotsRunner.__build_handler_dict(
+                handler,
+                commands=commands,
+                regexp=None,
+                func=None,
+                content_types=['text']
+            )
+            mainbot.message_handlers.insert(0, handler_dict)
+
+            return handler
+
+        return decorator
+
+    @staticmethod
+    def __build_handler_dict(handler, **filters):
+        return {
+            'function': handler,
+            'filters': filters
+        }
 
 
 class NotANewBotException(Exception):
