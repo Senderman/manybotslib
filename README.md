@@ -8,10 +8,9 @@ Fail-safe библиотека для запуска нескольких
 
 ## Установка
 
-`pip install https://github.com/Senderman/manybotslib/archive/master.zip`
+`pip install -e git://github.com/Senderman/manybotslib.git#egg=manybots`
 
-При использовании requirements.txt:
-`-e git://github.com/Senderman/manybotslib.git#egg=manybots`
+При использовании requirements.txt, добавьте в файл то что идет после -e выше
 
 ## Использование
 
