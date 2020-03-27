@@ -6,10 +6,14 @@ Fail-safe библиотека для запуска нескольких
 
 (написана для фана, не для серьезных целей)
 
+## Установка
+
+`pip install https://github.com/Senderman/manybotslib/archive/master.zip`
+
 ## Использование
 
 ```python
-from manybotslib import BotsRunner
+from manybots import BotsRunner
 
 # в конструктор можно передать id админов приложения,
 # количество попыток перезапуска каждого бота, а так же параметр,
