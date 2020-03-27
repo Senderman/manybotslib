@@ -10,6 +10,9 @@ Fail-safe библиотека для запуска нескольких
 
 `pip install https://github.com/Senderman/manybotslib/archive/master.zip`
 
+При использовании requirements.txt:
+`-e git://github.com/Senderman/manybotslib.git#egg=manybots`
+
 ## Использование
 
 ```python
