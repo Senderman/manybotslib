@@ -10,7 +10,7 @@ Fail-safe библиотека для запуска нескольких
 
 `pip install -e git://github.com/Senderman/manybotslib.git#egg=manybots`
 
-При использовании requirements.txt, добавьте в файл то что идет после -e выше
+При использовании requirements.txt, добавьте в файл `git+git://github.com/Senderman/manybotslib.git#egg=manybots`
 
 ## Использование
 
